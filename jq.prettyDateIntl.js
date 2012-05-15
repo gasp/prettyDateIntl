@@ -5,20 +5,13 @@
 			
 		},
 
-		makedate : function(){
+		makedate : function(text){
 			return 'trolo'+text;
 		},
-		init : function(options){
-// may extend ?
-
-
-			//console.log(this);
-			
+		init : function(options){			
 			return this.each(function() { 
-				console.log(makedate());
-				
 				var t = (this.title)? this.title:$(this).html();
-				var date = 'trolo'+t;//makedate(t);
+				var date = methods.makedate(t);
 				if ( date )
 					jQuery(this).text( date );
 			});
