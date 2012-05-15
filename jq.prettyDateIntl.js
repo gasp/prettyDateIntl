@@ -1,19 +1,36 @@
 (function( $ ){
 	var methods = {
-//		lang : 'en',
+		lang : function(codelang){
+			var lang = codelang||'en-EN';
+ 			// amke sure that the language code is in the aa-AA format
+			lang = lang.replace(/_/, '-').toLowerCase();
+			if (lang.length > 3) {
+				lang = lang.substring(0, 3) + lang.substring(3).toUpperCase();
+			}
+			else{
+				lang=lang+'-'+lang.toUpperCase();
+			}
+			return lang;
+		},
 		change : function(){
 			
 		},
 
-		makedate : function(text){
-			return 'trolo'+text;
+		makedate : function(text,lang){
+			return lang+' trolo '+text;
 		},
-		init : function(options){			
+		init : function(options){	
+			var settings = $.extend( {
+			      'lang'         : 'en-EN'
+			    }, options);
+				settings.lang = methods.lang(settings.lang);
+				
 			return this.each(function() { 
 				var t = (this.title)? this.title:$(this).html();
-				var date = methods.makedate(t);
+				var date = methods.makedate( t, settings.lang );
 				if ( date )
-					jQuery(this).text( date );
+					jQuery(this).text( date ).attr({'title':t});
+
 			});
 		}
 	}
