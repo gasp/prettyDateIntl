@@ -1,4 +1,11 @@
-(function( $ ){
+(function( $ ){	
+	var pack = {
+		en:{},
+		fr:{}
+	};
+	pack.en={'just now':'just now','test':'test EN'}
+	pack.fr={'just now':'à l\'instant','test':'test FR'};
+	
 	var methods = {
 		lang : function(codelang){
 			var lang = codelang||'en-EN';
@@ -17,6 +24,8 @@
 		},
 
 		makedate : function(text,lang){
+			console.log(pack.en['just now']);
+			
 			return lang+' trolo '+text;
 		},
 		init : function(options){	
