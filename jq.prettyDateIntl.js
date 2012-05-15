@@ -33,7 +33,3 @@
  
 	};
 })( jQuery );
- 
-$(document).ready(function(){
-    $('span').dateme();
-})
