@@ -25,7 +25,9 @@
 				navigator.userLanguage /* IE */);
 		},
 		change : function(lang){
-			$.dateme.lang=lang(lang);
+//			how to call auto() and lang() ?
+//			if(!lang) lang=auto();
+//			$.dateme.lang=lang(lang);
 		},
 
 		makedate : function(text,lang){
