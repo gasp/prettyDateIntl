@@ -11,7 +11,7 @@
 	
 	var methods = {
 		lang : function(codelang){
-			var lang = codelang||'en-EN';
+			var lang = codelang||'en_US';
  			// make sure that the language code is in the aa-AA format
 			lang = lang.replace(/-/, '_').toLowerCase();
 			if (lang.length > 3) {
@@ -34,8 +34,9 @@
 		},
 
 		makedate : function(text,lang){
+			console.log(pack.fr_FR['now']);
 			
-			var translated = eval("pack."+lang+"['now']");
+			var translated = pack[lang]['now'];
 			return lang+' '+translated+' '+text;
 		},
 		init : function(options){	
