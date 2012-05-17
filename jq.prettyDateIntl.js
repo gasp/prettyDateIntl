@@ -31,9 +31,9 @@
 		},
 
 		makedate : function(text,lang){
-			console.log(pack.fr['just now']);
 			
 			return lang+' trolo '+text;
+			return pack.fr['just now']+' '+text;
 		},
 		init : function(options){	
 			var settings = $.extend( {
