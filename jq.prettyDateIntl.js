@@ -9,7 +9,7 @@
 	var methods = {
 		lang : function(codelang){
 			var lang = codelang||'en-EN';
- 			// amke sure that the language code is in the aa-AA format
+ 			// make sure that the language code is in the aa-AA format
 			lang = lang.replace(/_/, '-').toLowerCase();
 			if (lang.length > 3) {
 				lang = lang.substring(0, 3) + lang.substring(3).toUpperCase();
@@ -19,12 +19,17 @@
 			}
 			return lang;
 		},
-		change : function(){
-			
+		// set automatically the language depending on the browser
+		auto : function(){
+			return (navigator.language /* Mozilla */ ||
+				navigator.userLanguage /* IE */);
+		},
+		change : function(lang){
+			$.dateme.lang=lang(lang);
 		},
 
 		makedate : function(text,lang){
-			console.log(pack.en['just now']);
+			console.log(pack.fr['just now']);
 			
 			return lang+' trolo '+text;
 		},
