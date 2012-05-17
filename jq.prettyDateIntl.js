@@ -3,19 +3,22 @@
 		en:{},
 		fr:{}
 	};
-	pack.en={'just now':'just now','test':'test EN'}
-	pack.fr={'just now':'à l\'instant','test':'test FR'};
+	pack.en_EN={'now':'just now','test':'test EN'}
+	pack.en_US={'now':'now','test':'test EN'}
+	pack.fr_FR={'now':'à l\'instant','test':'test FR'};
+	
+	console.log($.data(document));
 	
 	var methods = {
 		lang : function(codelang){
 			var lang = codelang||'en-EN';
  			// make sure that the language code is in the aa-AA format
-			lang = lang.replace(/_/, '-').toLowerCase();
+			lang = lang.replace(/-/, '_').toLowerCase();
 			if (lang.length > 3) {
 				lang = lang.substring(0, 3) + lang.substring(3).toUpperCase();
 			}
 			else{
-				lang=lang+'-'+lang.toUpperCase();
+				lang=lang+'_'+lang.toUpperCase();
 			}
 			return lang;
 		},
@@ -32,12 +35,12 @@
 
 		makedate : function(text,lang){
 			
-			return lang+' trolo '+text;
-			return pack.fr['just now']+' '+text;
+			var translated = eval("pack."+lang+"['now']");
+			return lang+' '+translated+' '+text;
 		},
 		init : function(options){	
 			var settings = $.extend( {
-			      'lang'         : 'en-EN'
+			      'lang'         : 'en_US'
 			    }, options);
 				settings.lang = methods.lang(settings.lang);
 				
@@ -58,10 +61,6 @@
 			return methods.init.apply( this, arguments );
 		} else {
 			$.error( 'Method ' +  method + ' does not exist on the plugin' );
-		}
- 
-		function prettyDate(text){
-			return 'trolo'+text;
 		}
  
 	};
