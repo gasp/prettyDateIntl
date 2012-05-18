@@ -1,3 +1,4 @@
+// source : http://gcc.gnu.org/onlinedocs/libstdc++/manual/localization.html
 af_ZA
 ar_AE
 ar_BH
