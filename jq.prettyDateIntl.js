@@ -1,5 +1,5 @@
 (function( $ ){	
-	var pack = $(document).data('plugin_dateme');
+	var translation = $(document).data('plugin_dateme');
 	
 	var methods = {
 		lang : function(codelang){
@@ -26,9 +26,9 @@
 		},
 
 		makedate : function(text,lang){
-			console.log(pack.fr_FR['now']);
+			console.log(translation.fr_FR['now']);
 			
-			var translated = pack[lang]['now'];
+			var translated = translation[lang]['now'];
 			return lang+' '+translated+' '+text;
 		},
 		init : function(options){	
