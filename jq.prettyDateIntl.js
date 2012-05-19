@@ -1,5 +1,6 @@
 (function( $ ){	
 	var translation = $(document).data('plugin_dateme');
+	var reg=/(%d)/;
 	
 	var methods = {
 		lang : function(codelang){
@@ -28,7 +29,8 @@
 		makedate : function(text,lang){
 			console.log(translation.fr_FR['now']);
 			
-			var translated = translation[lang]['now'];
+			//var translated = translation[lang]['now'];
+			var translated = translation[lang]['minutes ago'].replace(reg,5);
 			return lang+' '+translated+' '+text;
 		},
 		init : function(options){	
