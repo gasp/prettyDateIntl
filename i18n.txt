@@ -133,3 +133,4 @@ yi_US
 zh_CN
 zh_HK
 zh_TW
+klin_GON
